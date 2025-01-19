@@ -1,0 +1,88 @@
+body {
+  background-color: #4169e1;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4b0082;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+}
+main .converter {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+main .converter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+main .converter input,
+main .converter select {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: gray;
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+main .converter input:focus,
+main .converter select:focus {
+  border-color: #4b0082;
+  outline: none;
+}
+main .converter select option {
+  font-weight: normal;
+}
+main .converter button {
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+main .converter button:hover {
+  background-color: rgb(45.5769230769, 0, 79);
+}
+main .converter p {
+  margin-top: 10px;
+}
+main .converter p.source-amount {
+  color: #808080;
+  font-size: 1em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+main .converter h2.target-amount {
+  color: #404040;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=styles.css.map */
