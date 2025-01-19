@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script type="module" src="app/app.controller.js"></script>
+    <script src="app/services/currency.service.js"></script>
+</head>
+<body ng-app="currencyConverterApp" ng-controller="CurrencyConverterController as converterCtrl">
+    <header>
+        <h1>Currency Converter</h1>
+    </header>
+    <main>
+        <div class="converter">
+            <label for="fromCurrency">From</label>
+            <select id="fromCurrency" ng-model="converterCtrl.fromCurrency">
+                <option ng-repeat="currency in converterCtrl.currencies" value="{{currency.code}}">
+                    {{currency.flag}} {{currency.code}} {{currency.name}}
+                </option>
+            </select>
+
+            <label for="toCurrency">To</label>
+            <select id="toCurrency" ng-model="converterCtrl.toCurrency">
+                <option ng-repeat="currency in converterCtrl.currencies" value="{{currency.code}}">
+                    {{currency.flag}}{{currency.code}} {{currency.name}}
+                </option>
+            </select>
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" ng-model="converterCtrl.amount" placeholder="Enter amount" />
+
+            <button ng-click="converterCtrl.convert()">Convert</button>
+
+            <p>Converted Amount: {{ converterCtrl.convertedAmount | number:2 }} {{ converterCtrl.toCurrency }}</p>
+
+            <!-- New paragraphs for source and target currency amounts -->
+            <p class="source-amount" ng-if="converterCtrl.convertedAmount"> 
+                {{ converterCtrl.amount | number:2 }} {{ converterCtrl.fromCurrency }} = 
+            </p>
+            <h2 class="target-amount" ng-if="converterCtrl.convertedAmount"> 
+                {{ converterCtrl.convertedAmount | number:2 }} {{ converterCtrl.toCurrency }}
+            </h2>
+        </div>
+    </main>
+</body>
+</html>
