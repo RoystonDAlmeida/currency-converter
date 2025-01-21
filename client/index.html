@@ -24,10 +24,15 @@
                 </option>
             </select>
 
+            <!-- Swap Button -->
+            <button class="swap-button" ng-click="converterCtrl.swapCurrencies()" title="Swap Currencies">
+                ↔
+            </button>
+
             <label for="toCurrency">To</label>
             <select id="toCurrency" ng-model="converterCtrl.toCurrency">
                 <option ng-repeat="currency in converterCtrl.currencies" value="{{currency.code}}">
-                    {{currency.flag}}{{currency.code}} {{currency.name}}
+                    {{currency.flag}} {{currency.code}} {{currency.name}}
                 </option>
             </select>
 
@@ -36,7 +41,7 @@
 
             <button ng-click="converterCtrl.convert()">Convert</button>
 
-            <p>Converted Amount: {{ converterCtrl.convertedAmount | number:2 }} {{ converterCtrl.toCurrency }}</p>
+            <p>Converted Amount: {{ converterCtrl.convertedAmount | number:2 }} <span ng-if="converterCtrl.convertedAmount">{{ converterCtrl.toCurrency }}</span></p>
 
             <!-- New paragraphs for source and target currency amounts -->
             <p class="source-amount" ng-if="converterCtrl.convertedAmount"> 
