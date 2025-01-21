@@ -12,6 +12,13 @@ angular.module('currencyConverterApp')
     // List of currencies with abbreviations, full names, and flags
     vm.currencies = currencies;
 
+    // Function to swap currencies
+    vm.swapCurrencies = function() {
+        const temp = vm.fromCurrency;
+        vm.fromCurrency = vm.toCurrency;
+        vm.toCurrency = temp;
+    };
+
     // Convert function
     vm.convert = function() {
         CurrencyService.getExchangeRate(vm.fromCurrency, vm.toCurrency, vm.amount).then(function(response) {
